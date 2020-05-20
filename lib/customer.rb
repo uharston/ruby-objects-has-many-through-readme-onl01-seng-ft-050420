@@ -24,4 +24,6 @@ class Customer
   def waiters
     meals.map {|meal| meal.waiter}
   end
+  #Ex. terrance.waiters.last.name #=> "Joni"
+  
 end
