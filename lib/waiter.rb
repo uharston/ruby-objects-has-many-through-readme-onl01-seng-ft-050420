@@ -27,11 +27,9 @@ class Waiter
  end
 
  def best_tipper
-   best_tipped_meal =  meals.map {|meal| meal.tip.sort.last}
-   binding.pry
-   best_tipped_meal
-
- end
+   best_tipped_meal =  meals.map {|meal| meal.tip.sort}
+   best_tipped_meal.last 
+end
 
  # def best_tipper
  #   best_tipped_meal = meals.max do |meal_a, meal_b|
