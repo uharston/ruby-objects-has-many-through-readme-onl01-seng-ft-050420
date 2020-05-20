@@ -1,35 +1,35 @@
 class Waiter
-  attr_accessor :name, :yrs_experience 
+  attr_accessor :name, :yrs_experience
 
   @@all = []
 
   def initialize(name, yrs_experience)
-    @name = name 
+    @name = name
     @yrs_experience = yrs_experience
-    @@all << self 
+    @@all << self
   end
 
-  def self.all 
-    @@all 
-  end 
+  def self.all
+    @@all
+  end
 
   def new_meal(customer, total, tip=0)
    Meal.new(self, customer, total, tip)
  end
 
- def meals 
+ def meals
   Meal.all.select {|meal| meal.waiter == self}
- end 
+ end
 
- def customers 
+ def customers
    meals.map {|meal| meal.customer}
- end 
+ end
 
  def best_tipper
-   meals.map {|meal| 
-     binding.pry 
+   meals.map {|meal|
+     binding.pry
      meal.tip.sort.last
    }
- end 
+ end
 
 end
